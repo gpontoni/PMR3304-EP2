@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sobre | Stella de Solária{% endblock %}
+
+{% block content %}
+<h2>🤖 Nota da desenvolvedora 🤖</h2>
+
+<p>Este site foi projetado e codificado por mim (<strong>Tecna</strong>), fada da Tecnologia, utilizando o gerador estático <strong>Hugo</strong> a pedidos incessantes da Stella.</p>
+
+<p>A diretiva inicial da Stella era criar uma página de portfólio "reluzente e impecável". Abaixo estão os parâmetros técnicos e os dados biográficos autorizados para exibição pública.</p>
+
+<img src="{% static 'images/tecna.png' %}" alt="Tecna Webmaster" class="tecna-avatar">
+
+<hr>
+
+<h3>💬 Mensagem da Stella:</h3>
+<blockquote>
+    <p><em>"Tecna! Você deixou a página muito cinza e cheia de dados! Cadê o rosa? Cadê as cores de Solaria? Adiciona mais brilho nisso ou eu vou pedir pra Flora reprogramar o CSS!"</em> 💅✨</p>
+</blockquote>
+
+<p><em>(Nota da Tecna: Ajustei as variáveis de cores para os tons de rosa, amarelo e creme exigidos por ela, mantendo a estrutura de código limpa e responsiva).</em></p>
+
+<hr>
+
+<h3>🔄 Atualização do sistema (versão 2.0)</h3>
+<p>A Stella quis escrever no próprio site sem me chamar toda vez. Migrei tudo do Hugo para o <strong>Django</strong>: agora ela publica, edita e apaga posts sozinha, e as fãs podem comentar e mandar perguntas pelo fórum. O visual continua exatamente o mesmo, conforme exigido. 🤖✨</p>
+
+<hr>
+
+<h3>🛠️ Especificações Técnicas do Site (by Tecna)</h3>
+<ul>
+    <li><strong>Linguagem Base:</strong> Python &amp; Django Templates (antes: Go Templates &amp; HTML5)</li>
+    <li><strong>Banco de dados:</strong> SQLite</li>
+    <li><strong>Estilização:</strong> CSS3 (paleta personalizada por Solaria)</li>
+    <li><strong>Status do Servidor:</strong> Operacional e operando a 100% de brilho solar!</li>
+</ul>
+
+<hr>
+
+<p><em>Nota de rodapé: Para dúvidas técnicas sobre o site, contate a Tecna. Para dicas de moda ou críticas sobre o layout, reclame diretamente com a Stella.</em></p>
+{% endblock %}

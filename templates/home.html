@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<marquee style="color: #ff007f; font-weight: bold;">✨ Seja bem-vindo ao site oficial da Stella! Deixe seu brilho por onde passar! ✨</marquee>
+
+<h1>Bem vindos a Solária! ☀️✨</h1>
+
+<p>Bem-vindo(a) ao meu cantinho brilhante na web!</p>
+
+<p>Eu sou a <strong>Stella</strong>, Fada do Sol Reluzente, estudante de Magia em Alfea e estilista oficial do Clube das Winx! Aqui no meu portfólio, você encontra tudinho sobre mim, meus looks de transformação e minhas habilidades mágicas.</p>
+
+<img src="{% static 'images/stella_civil.png' %}" alt="Stella de Winx" class="stella-home-img">
+
+<hr>
+
+<h3>👑 Guia do Site:</h3>
+<ul>
+    <li><strong><a href="{% url 'about' %}">Sobre</a>:</strong> Conheça um pouco mais da minha história e hábitos feéricos!</li>
+</ul>
+
+<blockquote>
+    <p><em>"Um dia sem brilhar é um dia perdido!"</em> 💖<br>
+    <strong>Status atual:</strong> Procurando novidades fashion em Magix... 💅✨</p>
+</blockquote>
+{% endblock %}

@@ -1,0 +1,242 @@
+header {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+
+  background-image: url('../images/banner_rosa.png');   /* Banner rosa atrás do header */
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  color: white;
+}
+
+header h1 {
+    color: #000000 !important;
+    text-shadow: none;
+}
+
+header img {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Botões da barra de navegação */
+.botao-nav {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 16px;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+/* Responsividade ao mouse */
+.botao-nav:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+main {
+  flex: 1;
+  width: 80%;
+  max-width: 850px; 
+  margin: 30px auto;
+        
+  border: 4px double #ff66b2;  /* Borda rosa */
+  border-radius: 8px;   
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background-color: #fbf0d9;
+  padding: 40px; 
+}
+
+main h1, main h2 {
+  text-align: center;
+  border-bottom: 2px solid #e8dec8;
+  padding-bottom: 10px;
+  color: #3a2e2b;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  
+  font-family: 'Georgia', serif;
+  color: #2b2b2b;
+  background-color: #f3ede2;
+  padding: 20px 0;
+}
+
+/* Imagem da Stella na Home */
+.stella-home-img {
+    display: block;
+    max-width: 260px;
+    height: auto;
+    margin: 25px auto;
+
+    border: 2px dashed #ff66b2;   /* Borda rosa pontilhada */
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px #ffd700;   /* Sombra sólida amarela */
+    background-color: #ffffff;
+    padding: 4px;
+}
+
+/* Imagem da Tecna na About */
+.tecna-avatar {
+    display: block;
+    max-width: 256px; 
+    height: auto;
+    margin: 25px auto;
+
+    border: 2px dashed #663399;   /* Borda roxa pontilhada */
+    border-radius: 8px; 
+    box-shadow: 4px 4px 0px #00e5ff;   /* Sombra sólida ciano */
+    background-color: #ffffff;
+    padding: 4px;
+}
+
+/* Imagem da forma da stella para cada página de transformação */
+.img-transformacao {
+  display:block;
+  float: right;  /* Alinha imagem à direita */
+  max-width: 180px;
+  height: auto;
+  margin: 0 0 15px 20px;
+  
+  border: 3px solid #ff66b2;  /* Borda sólida rosa */
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px #ffd700;  /* Sombra sólida amarela */
+  background-color: #ffffff;
+  padding: 4px;
+}
+
+/* Limpa a flutuação da imagem no final do conteúdo */
+main::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+/* Grade em blocos da página List */
+.grade-transformacoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 10px 0;
+}
+
+/* Card individual para cada transformação na página List*/
+.card-transformacao {
+    text-align: center;
+    border: 2px dashed #ff66b2;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #ffd700;
+    background-color: #fffaf0;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Responsividade ao mouse para os cards */
+.card-transformacao:hover {
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 0px #ff007f;
+    background-color: #ffffff;
+}
+
+/* Formatação dos títulos dos cards */
+.card-transformacao h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #663399;
+}
+
+/* Formatação dos botões "Ver detalhes" dos cards */
+.botao-ver-mais {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #ffffff !important;
+    
+    border: 1px solid #ff007f;
+    border-radius: 15px;
+    background-color: #ff66b2;
+    padding: 6px 12px;
+}
+
+/* Responsividade ao mouse para os botões */
+.botao-ver-mais:hover {
+    background-color: #ff007f;
+}
+
+/* Estilo para telas de celular */
+@media (max-width: 768px) {
+    /* Ajusta o texto para a tela do celular */
+    main {
+        padding: 20px 15px !important;
+    }
+
+    main h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    /* Empilha os itens do header verticalmente */
+    header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 15px 10px !important;
+    }
+
+    /* Organiza o menu de navegação */
+    header nav ul {
+        flex-direction: column !important;  /* Empilha os botões um sobre o outro */
+        gap: 10px !important;
+        margin-top: 15px !important;
+    }
+
+    /* Ajusta a largura dos botões */
+    header nav a {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    /* Ajusta as imagens para visualização no celular */
+    .img-transformacao {
+        float: none !important;
+        display: block !important;
+        margin: 10 auto 20px auto !important;  /* Centraliza a imagem no topo do texto */
+        max-width: 220px !important;  /* Tamanho proporcional para tela de celular */
+    }
+}

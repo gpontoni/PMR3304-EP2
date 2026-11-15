@@ -1,0 +1,19 @@
+# Banco de dados local (não vai para o repositório)
+db.sqlite3
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Arquivos estáticos coletados (gerados pelo collectstatic)
+staticfiles/
+
+# Outros
+.env
+.vscode/
+.DS_Store
