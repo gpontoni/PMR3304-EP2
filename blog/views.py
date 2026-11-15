@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from .forms import CommentForm, PostForm
-from .models import Comment, Post
+from .models import Category, Comment, Post
 
 # ---------- Posts ----------
 
@@ -14,7 +14,12 @@ class PostListView(generic.ListView):
 # template padrão: blog/post_detail.html
 class PostDetailView(generic.DetailView):
     model = Post
-    # DetailView já responde com 404 se o post não existirgi
+    # a DetailView já responde com 404 se o post não existir
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
 
 # template padrão: blog/post_form.html
 class PostCreateView(generic.CreateView):
@@ -57,3 +62,21 @@ class CommentCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self):
         return reverse('blog:detail', kwargs={'pk': self.post_obj.pk})
+
+
+# ---------- Categorias ----------
+
+# template padrão: blog/category_list.html
+class CategoryListView(generic.ListView):
+    model = Category
+
+# Reaproveita o template de listagem de posts da parte 1
+class CategoryDetailView(generic.DetailView):
+    model = Category
+    template_name = 'blog/post_list.html'
+    # a DetailView já responde com 404 se a categoria não existir
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post_list'] = self.object.posts.all()
+        return context

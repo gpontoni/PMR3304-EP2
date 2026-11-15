@@ -6,6 +6,12 @@
 <h2>✨ {{ post.title }} ✨</h2>
 <p class="data-post">Postado em {{ post.date_posted|date:"d/m/Y \à\s H:i" }}</p>
 
+<p class="categorias-post">
+    {% for category in post.categories.all %}
+    <a href="{% url 'blog:category_detail' category.pk %}" class="tag-categoria">🏷️ {{ category.name }}</a>
+    {% endfor %}
+</p>
+
 <div class="conteudo-post">
     {{ post.content|safe }}
 </div>

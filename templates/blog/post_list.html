@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Diário | Stella de Solária{% endblock %}
+{% block title %}{% if category %}{{ category.name }}{% else %}Diário{% endif %} | Stella de Solária{% endblock %}
 
 {% block content %}
 <section>
+    {% if category %}
+    {# Usado pela CategoryDetailView: mostra só os posts desta categoria #}
+    <h2>🏷️ {{ category.name }} 🏷️</h2>
+    <p>{{ category.description }}</p>
+    {% else %}
     <h2>📔 Diário Brilhante da Stella 📔</h2>
-
     <p>Aqui eu registro cada nova transformação assim que conquisto, além das minhas trends e looks favoritos. Fique de olho, porque o brilho nunca para! 💅✨</p>
+    {% endif %}
 
     <div class="grade-transformacoes">
         {% for post in post_list %}
@@ -19,6 +24,12 @@
         <p>Ainda não escrevi nada por aqui... 🙈</p>
         {% endfor %}
     </div>
+
+    {% if category %}
+    <p class="acoes">
+        <a href="{% url 'blog:category_list' %}" class="botao-ver-mais">⬅ Todas as categorias</a>
+    </p>
+    {% endif %}
 
     <div class="area-stella">
         ✍️ <strong>Área da Stella:</strong>

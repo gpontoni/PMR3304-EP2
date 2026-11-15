@@ -244,6 +244,12 @@ main::after {
 /* ==== Estilos adicionados no EP2 ==== */
 /* ==================================== */
 
+/* Menu com botões adicionais e quebra de linha na falta de espaço */
+header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /* Botão de "Sair" */
 header nav button.botao-nav {
     border: none;
@@ -362,4 +368,29 @@ button.botao-ver-mais {
 .data-comentario {
     font-size: 0.85em;
     color: #8a6d5a;
+}
+
+/* Etiquetas de categoria e de tema */
+.categorias-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tag-categoria {
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #663399;
+    border: 2px solid #663399;
+    border-radius: 15px;
+    background-color: #f3e8ff;
+    padding: 4px 10px;
+}
+
+a.tag-categoria:hover {
+    background-color: #663399;
+    color: #ffffff;
 }
