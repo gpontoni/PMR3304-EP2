@@ -1,17 +1,17 @@
+# ----- Configurações do projeto blog_stella -----
+
 import os
 from pathlib import Path
 
 # Pasta raiz do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Em produção a chave vem de uma variável de ambiente
 SECRET_KEY = os.environ.get(
     'SECRET_KEY',
     'django-insecure-troque-esta-chave-em-producao-solaria-2026',
 )
 
 DEBUG = True
-
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
@@ -84,5 +84,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Login
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

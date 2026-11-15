@@ -244,6 +244,18 @@ main::after {
 /* ==== Estilos adicionados no EP2 ==== */
 /* ==================================== */
 
+/* Botão de "Sair" */
+header nav button.botao-nav {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+header nav form {
+    margin: 0;
+}
+
 /* Datas */
 .data-post {
     text-align: center;
@@ -323,4 +335,31 @@ button.botao-ver-mais {
 .errorlist {
     color: #b3202a;
     font-weight: bold;
+}
+
+/* Comentários do diário */
+.comentarios {
+    clear: both;
+    margin-top: 35px;
+    border-top: 2px solid #e8dec8;
+    padding-top: 10px;
+}
+
+.comentario {
+    border: 2px dashed #ff66b2;
+    border-radius: 10px;
+    background-color: #fffaf0;
+    box-shadow: 3px 3px 0px #ffd700;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.comentario-autor {
+    margin: 0 0 6px 0;
+    color: #663399;
+}
+
+.data-comentario {
+    font-size: 0.85em;
+    color: #8a6d5a;
 }

@@ -16,6 +16,35 @@
     <a href="{% url 'blog:delete' post.pk %}" class="botao-ver-mais botao-perigo">Remover</a>
 </div>
 
+<section class="comentarios">
+    <h3>💬 Comentários das fãs ({{ post.comments.count }})</h3>
+
+    {% for comment in post.comments.all %}
+    <article class="comentario">
+        <p class="comentario-autor">
+            <strong>{{ comment.author.username }}</strong>
+            <span class="data-comentario">em {{ comment.date_posted|date:"d/m/Y \à\s H:i" }}</span>
+        </p>
+        <p>{{ comment.text|linebreaksbr }}</p>
+    </article>
+    {% empty %}
+    <p>Nenhum comentário ainda. Seja a primeira fada a comentar! ✨</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+    <h4>Deixe seu comentário, {{ user.username }}</h4>
+    <form method="post" action="{% url 'blog:comment_create' post.pk %}" class="formulario">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="botao-ver-mais">Publicar comentário 💬</button>
+    </form>
+    {% else %}
+    <p class="acoes">
+        <a href="{% url 'blog:comment_create' post.pk %}" class="botao-ver-mais">💬 Entrar para comentar</a>
+    </p>
+    {% endif %}
+</section>
+
 <p class="acoes">
     <a href="{% url 'blog:list' %}" class="botao-ver-mais">⬅ Voltar ao diário</a>
 </p>

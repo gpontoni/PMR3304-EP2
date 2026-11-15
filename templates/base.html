@@ -18,6 +18,16 @@
                 <li><a href="{% url 'home' %}" class="botao-nav">Home</a></li>
                 <li><a href="{% url 'about' %}" class="botao-nav">Sobre</a></li>
                 <li><a href="{% url 'blog:list' %}" class="botao-nav">Diário</a></li>
+                {% if user.is_authenticated %}
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="botao-nav">Sair ({{ user.username }})</button>
+                    </form>
+                </li>
+                {% else %}
+                <li><a href="{% url 'login' %}" class="botao-nav">Entrar</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
