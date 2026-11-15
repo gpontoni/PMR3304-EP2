@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro | Stella de Solária{% endblock %}
+
+{% block content %}
+<h2>🌟 Seja uma seguidora da Stella</h2>
+
+<p>Crie sua conta para comentar no diário e mandar perguntas no fórum.</p>
+
+<form method="post" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="botao-ver-mais">Criar conta ✨</button>
+</form>
+
+<p>Já tem conta? <a href="{% url 'login' %}">Entrar</a></p>
+{% endblock %}

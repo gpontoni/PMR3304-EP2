@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Responder | Fórum{% endblock %}
+{% block content %}
+<h2>✨ Responder: {{ question.title }}</h2>
+
+<article class="comentario">
+    <p class="comentario-autor"><strong>{{ question.author.username }}</strong> perguntou:</p>
+    <p>{{ question.text|linebreaksbr }}</p>
+</article>
+
+<form method="post" action="{% url 'forum:answer_create' question.pk %}" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="botao-ver-mais">Enviar resposta ✨</button>
+</form>
+
+<p class="acoes">
+    <a href="{% url 'forum:detail' question.pk %}" class="botao-ver-mais">⬅ Voltar à pergunta</a>
+</p>
+{% endblock %}

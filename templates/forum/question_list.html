@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Fórum | Stella de Solária{% endblock %}
+{% block content %}
+<h2>💌 Fórum da Stella 💌</h2>
+
+<p>Oiê, seguidoras! Este é o nosso cantinho para conversar sobre <strong>moda</strong>, <strong>trends</strong> e <strong>magia</strong>. Mandem suas perguntas que eu respondo pessoalmente, palavra de princesa de Solária! ☀️👑</p>
+
+<p class="acoes">
+    <a href="{% url 'forum:create' %}" class="botao-ver-mais">+ Fazer uma pergunta</a>
+</p>
+
+{% for question in question_list %}
+<article class="pergunta-item">
+    <h3><a href="{% url 'forum:detail' question.pk %}">{{ question.title }}</a></h3>
+    <p>
+        <span class="tag-categoria">{{ question.get_theme_display }}</span>
+        por <strong>{{ question.author.username }}</strong>
+        <span class="data-comentario">em {{ question.date_posted|date:"d/m/Y" }}</span>
+        ·
+        {% if question.answered_by_stella %}
+        <span class="selo selo-respondida">☀️ Respondida pela Stella</span>
+        {% else %}
+        <span class="selo selo-aguardando">⏳ Aguardando a Stella</span>
+        {% endif %}
+    </p>
+</article>
+{% empty %}
+<p>Nenhuma pergunta ainda. Que tal ser a primeira? ✨</p>
+{% endfor %}
+{% endblock %}

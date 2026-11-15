@@ -19,6 +19,7 @@
                 <li><a href="{% url 'about' %}" class="botao-nav">Sobre</a></li>
                 <li><a href="{% url 'blog:list' %}" class="botao-nav">Diário</a></li>
                 <li><a href="{% url 'blog:category_list' %}" class="botao-nav">Categorias</a></li>
+                <li><a href="{% url 'forum:list' %}" class="botao-nav">Fórum</a></li>
                 {% if user.is_authenticated %}
                 <li>
                     <form method="post" action="{% url 'logout' %}">

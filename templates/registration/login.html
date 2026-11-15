@@ -5,7 +5,7 @@
 {% block content %}
 <h2>🔑 Entrar</h2>
 
-<p>Entre com a sua conta de fada para comentar no diário.</p>
+<p>Entre com a sua conta de fada para comentar no diário e mandar perguntas no fórum.</p>
 
 {% if form.errors %}
 <p class="errorlist">Usuário ou senha incorretos. Tente de novo! ✨</p>
@@ -17,4 +17,6 @@
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="botao-ver-mais">Entrar 💖</button>
 </form>
+
+<p>Ainda não tem conta? <a href="{% url 'forum:signup' %}">Cadastre-se como seguidora</a> ✨</p>
 {% endblock %}

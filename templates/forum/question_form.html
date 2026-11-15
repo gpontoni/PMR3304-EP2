@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Nova pergunta | Fórum{% endblock %}
+{% block content %}
+<h2>💌 Pergunte para a Stella</h2>
+
+<p>Perguntando como <strong>{{ user.username }}</strong>.</p>
+
+<form method="post" class="formulario">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="botao-ver-mais">Enviar pergunta 💌</button>
+</form>
+
+<p class="acoes">
+    <a href="{% url 'forum:list' %}" class="botao-ver-mais">Cancelar</a>
+</p>
+{% endblock %}
