@@ -232,7 +232,7 @@ main::after {
         margin: 0 auto;
     }
 
-    /* Ajusta as imagens para visualização no celular */
+    /* Ajusta as imagens para elas não espremerem o texto no celular */
     .img-transformacao {
         float: none !important;
         display: block !important;
@@ -318,4 +318,9 @@ button.botao-ver-mais {
 .formulario span.helptext {
     font-size: 0.8em;
     color: #8a6d5a;
+}
+
+.errorlist {
+    color: #b3202a;
+    font-weight: bold;
 }

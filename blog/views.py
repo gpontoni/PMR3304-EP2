@@ -1,5 +1,5 @@
-# Versão 1: views funcionais, sem Django forms e sem validação de dados.
 from django.shortcuts import get_object_or_404, redirect, render
+from .forms import PostForm
 from .models import Post
 
 def post_list(request):
@@ -15,22 +15,25 @@ def post_detail(request, pk):
 
 def post_create(request):
     if request.method == 'POST':
-        post = Post.objects.create(
-            title=request.POST.get('title', ''),
-            content=request.POST.get('content', ''),
-        )
-        return redirect('blog:detail', pk=post.pk)
-    return render(request, 'blog/post_form.html')
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            return redirect('blog:detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_form.html', {'form': form})
 
 
 def post_update(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':
-        post.title = request.POST.get('title', '')
-        post.content = request.POST.get('content', '')
-        post.save()
-        return redirect('blog:detail', pk=post.pk)
-    return render(request, 'blog/post_form.html', {'post': post})
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:detail', pk=post.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'blog/post_form.html', {'form': form, 'post': post})
 
 
 def post_delete(request, pk):
