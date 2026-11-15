@@ -1,45 +1,28 @@
-from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.views import generic
 from .forms import PostForm
 from .models import Post
 
-def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'post_list': posts})
+# template padrão: blog/post_list.html
+class PostListView(generic.ListView):
+    model = Post
 
+# template padrão: blog/post_detail.html
+class PostDetailView(generic.DetailView):
+    model = Post
+    # DetailView já responde com 404 se o post não existirgi
 
-def post_detail(request, pk):
-    # Responde com 404 caso o post não exista
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+# template padrão: blog/post_form.html
+class PostCreateView(generic.CreateView):
+    model = Post
+    form_class = PostForm
+    # depois de salvar, redireciona para post.get_absolute_url()
 
+class PostUpdateView(generic.UpdateView):
+    model = Post
+    form_class = PostForm
 
-def post_create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save()
-            return redirect('blog:detail', pk=post.pk)
-    else:
-        form = PostForm()
-    return render(request, 'blog/post_form.html', {'form': form})
-
-
-def post_update(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
-            return redirect('blog:detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_form.html', {'form': form, 'post': post})
-
-
-def post_delete(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == 'POST':
-        post.delete()
-        return redirect('blog:list')
-    # GET: exibe a página de confirmação
-    return render(request, 'blog/post_confirm_delete.html', {'post': post})
+# template padrão: blog/post_confirm_delete.html
+class PostDeleteView(generic.DeleteView):
+    model = Post
+    success_url = reverse_lazy('blog:list')
