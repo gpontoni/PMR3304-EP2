@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}{{ question.title }} | Fórum{% endblock %}
+{% block content %}
+<h2>💌 {{ question.title }}</h2>
+
+<p class="categorias-post">
+    <span class="tag-categoria">{{ question.get_theme_display }}</span>
+</p>
+
+<article class="comentario">
+    <p class="comentario-autor">
+        <strong>{{ question.author.username }}</strong> perguntou
+        <span class="data-comentario">em {{ question.date_posted|date:"d/m/Y \à\s H:i" }}</span>
+    </p>
+    <p>{{ question.text|linebreaksbr }}</p>
+</article>
+
+<section class="comentarios">
+    <h3>✨ Respostas ({{ question.answers.count }})</h3>
+
+    {% for answer in question.answers.all %}
+    <article class="comentario{% if answer.is_from_stella %} resposta-stella{% endif %}">
+        <p class="comentario-autor">
+            <strong>{{ answer.author.username }}</strong>
+            {% if answer.is_from_stella %}<span class="selo selo-respondida">☀️ Stella</span>{% endif %}
+            <span class="data-comentario">em {{ answer.date_posted|date:"d/m/Y \à\s H:i" }}</span>
+        </p>
+        <p>{{ answer.text|linebreaksbr }}</p>
+    </article>
+    {% empty %}
+    <p>Ainda sem respostas. A Stella deve estar fazendo compras em Magix... 🛍️</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+    <h4>Responder como {{ user.username }}</h4>
+    <form method="post" action="{% url 'forum:answer_create' question.pk %}" class="formulario">
+        {% csrf_token %}
+        {{ answer_form.as_p }}
+        <button type="submit" class="botao-ver-mais">Enviar resposta ✨</button>
+    </form>
+    {% else %}
+    <p class="acoes">
+        <a href="{% url 'forum:answer_create' question.pk %}" class="botao-ver-mais">Entrar para responder</a>
+    </p>
+    {% endif %}
+</section>
+
+<p class="acoes">
+    <a href="{% url 'forum:list' %}" class="botao-ver-mais">⬅ Voltar ao fórum</a>
+</p>
+{% endblock %}

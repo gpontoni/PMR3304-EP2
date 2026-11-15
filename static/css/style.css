@@ -394,3 +394,47 @@ a.tag-categoria:hover {
     background-color: #663399;
     color: #ffffff;
 }
+
+/* Lista de perguntas do fórum */
+.pergunta-item {
+    border: 2px dashed #ff66b2;
+    border-radius: 12px;
+    background-color: #fffaf0;
+    box-shadow: 4px 4px 0px #ffd700;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+}
+
+.pergunta-item h3 {
+    margin: 0 0 6px 0;
+}
+
+.pergunta-item h3 a {
+    color: #663399;
+    text-decoration: none;
+}
+
+.selo {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 2px 8px;
+}
+
+.selo-respondida {
+    background-color: #ffd700;
+    color: #3a2e2b;
+}
+
+.selo-aguardando {
+    background-color: #e8dec8;
+    color: #3a2e2b;
+}
+
+/* Formatação especial em dourado para respostas da própria Stella */
+.resposta-stella {
+    border: 3px solid #ffd700;
+    background-color: #fff6cc;
+    box-shadow: 3px 3px 0px #ff66b2;
+}
