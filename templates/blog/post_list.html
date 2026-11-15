@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Diário | Stella de Solária{% endblock %}
+
+{% block content %}
+<section>
+    <h2>📔 Diário Brilhante da Stella 📔</h2>
+
+    <p>Aqui eu registro cada nova transformação assim que conquisto, além das minhas trends e looks favoritos. Fique de olho, porque o brilho nunca para! 💅✨</p>
+
+    <div class="grade-transformacoes">
+        {% for post in post_list %}
+        <article class="card-transformacao">
+            <h3>{{ post.title }}</h3>
+            <p class="data-post">{{ post.date_posted|date:"d/m/Y" }}</p>
+            <a href="{% url 'blog:detail' post.pk %}" class="botao-ver-mais">Ler post 💖</a>
+        </article>
+        {% empty %}
+        <p>Ainda não escrevi nada por aqui... 🙈</p>
+        {% endfor %}
+    </div>
+
+    <div class="area-stella">
+        ✍️ <strong>Área da Stella:</strong>
+        <a href="{% url 'blog:create' %}" class="botao-ver-mais">Escrever novo post</a>
+    </div>
+</section>
+{% endblock %}

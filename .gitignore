@@ -1,4 +1,4 @@
-# Banco de dados local (não vai para o repositório)
+# Banco de dados local
 db.sqlite3
 
 # Cache do Python
@@ -10,7 +10,7 @@ __pycache__/
 venv/
 env/
 
-# Arquivos estáticos coletados (gerados pelo collectstatic)
+# Arquivos estáticos coletados
 staticfiles/
 
 # Outros

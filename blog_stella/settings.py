@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-# Pasta raiz do projeto (onde fica o manage.py)
+# Pasta raiz do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Em produção a chave vem de uma variável de ambiente
@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -40,7 +41,7 @@ ROOT_URLCONF = 'blog_stella.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Pasta /templates na raiz do projeto (exigência do enunciado)
+        # Pasta /templates na raiz do projeto
         'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -56,7 +57,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog_stella.wsgi.application'
 
 
-# Banco de dados: um único arquivo db.sqlite3 na raiz do projeto
+# Banco de dados
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

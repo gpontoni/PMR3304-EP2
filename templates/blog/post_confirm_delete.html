@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Remover post | Stella de Solária{% endblock %}
+
+{% block content %}
+<h2>🗑️ Remover post</h2>
+
+<p>Tem certeza de que deseja apagar o post <strong>"{{ post.title }}"</strong> do diário? Esta ação não pode ser desfeita. 😱</p>
+
+<form method="post">
+    {% csrf_token %}
+    <p class="acoes">
+        <button type="submit" class="botao-ver-mais botao-perigo">Sim, remover</button>
+        <a href="{% url 'blog:detail' post.pk %}" class="botao-ver-mais">Cancelar</a>
+    </p>
+</form>
+{% endblock %}
