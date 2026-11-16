@@ -244,10 +244,27 @@ main::after {
 /* ==== Estilos adicionados no EP2 ==== */
 /* ==================================== */
 
-/* Menu com botões adicionais e quebra de linha na falta de espaço */
+/* Menu em grade: 3 botões em cima e 3 embaixo */
+header {
+    align-items: center;
+}
+
 header nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+header nav li,
+header nav form {
+    display: flex;
+    margin: 0;
+}
+
+header nav .botao-nav {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
 }
 
 /* Botão de "Sair" */
@@ -259,7 +276,21 @@ header nav button.botao-nav {
 }
 
 header nav form {
-    margin: 0;
+    flex: 1;
+}
+
+/* No celular: grade de 2 colunas abaixo do título */
+@media (max-width: 768px) {
+    header nav ul {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    header nav a,
+    header nav button.botao-nav {
+        width: auto !important;
+        margin: 0 !important;
+    }
 }
 
 /* Datas */
