@@ -161,7 +161,7 @@ PERGUNTAS = [
         ],
     },
     {
-        # Pergunta ainda sem resposta da Stella (para responder manualmente e demonstrar funcionamento do site)
+        # Pergunta ainda sem resposta da Stella
         'author': 'lili_magix', 'theme': 'magia', 'date': data(11, 13, 21, 0),
         'title': 'O Anel de Solaria precisa de recarga?',
         'text': 'Fiquei curiosa: o anel funciona à noite, sem sol?',
